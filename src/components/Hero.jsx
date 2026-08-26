@@ -260,10 +260,8 @@ function Hero({ onRequestAccess }) {
         );
       });
 
-      // 5. Card copy: lead line lights up, supporting line stays dimmer
       words.forEach((word, i) => {
-        const lead = i < CARD_LEAD.length;
-        tl.to(word, { opacity: lead ? 1 : 0.34, duration: 0.03 }, 0.92 + i * 0.018);
+        tl.to(word, { opacity: 1, duration: 0.03 }, 0.92 + i * 0.018);
       });
 
       tl.to({}, { duration: 0.22 });
@@ -302,8 +300,8 @@ function Hero({ onRequestAccess }) {
   };
 
   const cardWords = [
-    ...CARD_LEAD.map((word) => ({ word, dim: false })),
-    ...CARD_DIM.map((word) => ({ word, dim: true })),
+    ...CARD_LEAD.map((word) => ({ word })),
+    ...CARD_DIM.map((word) => ({ word })),
   ];
 
   return (
@@ -373,7 +371,7 @@ function Hero({ onRequestAccess }) {
             {cardWords.map((item, i) => (
               <React.Fragment key={`${item.word}-${i}`}>
                 <span
-                  className={`hs-word${item.dim ? " is-dim" : ""}`}
+                  className="hs-word"
                   ref={(el) => {
                     wordsRef.current[i] = el;
                   }}

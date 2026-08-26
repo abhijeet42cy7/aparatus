@@ -93,11 +93,11 @@ const AnimatedFAQDiagram = () => {
                 'Is there a mobile version of your OCR product available?'
             ],
             leftAnswers: [
-                'The key features of our a_OCR product include advanced optical character recognition that turns unstructured data from various sources into structured formats, with seamless ingestion from paper, Gmail, Drive, and SharePoint. It also incorporates understanding and action-taking capabilities, allowing for intelligent data processing and export to CSV, XML, or XLS, ensuring high efficiency across all use cases.',
-                'Yes, our a_OCR supports multilingual document processing, handling texts in multiple languages including non-Latin scripts with exceptional accuracy. This feature is designed to cater to global users, making it ideal for international businesses dealing with diverse linguistic content in documents.',
-                'Our a_OCR can handle both handwritten text and printed text effectively, leveraging advanced AI to recognize variations in writing styles. With its robust machine learning models, it achieves high accuracy even on challenging handwritten notes, forms, or signatures across all document types.',
-                'Our a_OCR offers integrations with popular software like Gmail, Google Drive, and SharePoint for easy data ingestion, as well as export options to CSV, XML, and XLS for compatibility with tools like Excel or databases. These integrations streamline workflows, allowing seamless connection with CRM systems, ERP software, and cloud storage solutions for automated data flow.',
-                'Yes, there is a mobile version of our a_OCR product available, enabling users to scan and process documents on-the-go via iOS and Android apps. This mobile app supports real-time OCR, making it convenient for field workers or remote teams to convert unstructured data instantly.'
+                'The key features of our A_paratus product include advanced optical character recognition that turns unstructured data from various sources into structured formats, with seamless ingestion from paper, Gmail, Drive, and SharePoint. It also incorporates understanding and action-taking capabilities, allowing for intelligent data processing and export to CSV, XML, or XLS, ensuring high efficiency across all use cases.',
+                'Yes, our A_paratus supports multilingual document processing, handling texts in multiple languages including non-Latin scripts with exceptional accuracy. This feature is designed to cater to global users, making it ideal for international businesses dealing with diverse linguistic content in documents.',
+                'Our A_paratus can handle both handwritten text and printed text effectively, leveraging advanced AI to recognize variations in writing styles. With its robust machine learning models, it achieves high accuracy even on challenging handwritten notes, forms, or signatures across all document types.',
+                'Our A_paratus offers integrations with popular software like Gmail, Google Drive, and SharePoint for easy data ingestion, as well as export options to CSV, XML, and XLS for compatibility with tools like Excel or databases. These integrations streamline workflows, allowing seamless connection with CRM systems, ERP software, and cloud storage solutions for automated data flow.',
+                'Yes, there is a mobile version of our A_paratus product available, enabling users to scan and process documents on-the-go via iOS and Android apps. This mobile app supports real-time OCR, making it convenient for field workers or remote teams to convert unstructured data instantly.'
             ],
             rightQuestions: [
                 'How does your OCR differ from competitors like Google Cloud Vision or ABBYY?',
@@ -107,11 +107,11 @@ const AnimatedFAQDiagram = () => {
                 'How frequently do you update your OCR product with new features?'
             ],
             rightAnswers: [
-                'Our a_OCR differs from competitors like Google Cloud Vision or ABBYY by offering a superior accuracy rate of 99.2% and being specifically tailored for all documents across industries, with a focus on Made-in-India innovation. Additionally, it includes built-in understanding and action layers for more intelligent processing, providing better value in terms of cost-effectiveness and customization compared to generic solutions.',
-                'Our a_OCR can process a wide variety of documents effectively, including invoices, receipts, contracts, forms, medical records, and handwritten notes. It excels in handling all types across industries, from structured forms to unstructured texts, ensuring reliable extraction regardless of complexity.',
-                'Yes, our a_OCR includes post-processing tools for data validation, such as error correction mechanisms and intelligent understanding layers to verify extracted information. These tools allow users to review and refine data automatically, reducing errors and ensuring high-quality structured output.',
-                'There are minimal hardware requirements for using our a_OCR, as it is cloud-based and accessible via web or mobile apps, requiring only a standard device with internet access. No specialized hardware is needed beyond a scanner or camera for input, making it accessible for small businesses and enterprises alike.',
-                'We update our a_OCR product frequently with new features, typically every quarter, incorporating user feedback and AI advancements to enhance performance. These updates include improvements in accuracy, new integrations, and support for emerging document types, keeping the product at the forefront of OCR technology.'
+                'Our A_paratus differs from competitors like Google Cloud Vision or ABBYY by offering a superior accuracy rate of 99.2% and being specifically tailored for all documents across industries, with a focus on Made-in-India innovation. Additionally, it includes built-in understanding and action layers for more intelligent processing, providing better value in terms of cost-effectiveness and customization compared to generic solutions.',
+                'Our A_paratus can process a wide variety of documents effectively, including invoices, receipts, contracts, forms, medical records, and handwritten notes. It excels in handling all types across industries, from structured forms to unstructured texts, ensuring reliable extraction regardless of complexity.',
+                'Yes, our A_paratus includes post-processing tools for data validation, such as error correction mechanisms and intelligent understanding layers to verify extracted information. These tools allow users to review and refine data automatically, reducing errors and ensuring high-quality structured output.',
+                'There are minimal hardware requirements for using our A_paratus, as it is cloud-based and accessible via web or mobile apps, requiring only a standard device with internet access. No specialized hardware is needed beyond a scanner or camera for input, making it accessible for small businesses and enterprises alike.',
+                'We update our A_paratus product frequently with new features, typically every quarter, incorporating user feedback and AI advancements to enhance performance. These updates include improvements in accuracy, new integrations, and support for emerging document types, keeping the product at the forefront of OCR technology.'
             ]
         },
         'sales': {
@@ -123,8 +123,8 @@ const AnimatedFAQDiagram = () => {
                 'Who can I contact for sales inquiries in my region?'
             ],
             leftAnswers: [
-                'To schedule a demo for our a_OCR product, you can visit our website or contact our sales team via email or phone for a personalized session. Demos are tailored to your needs, showcasing live processing of your sample documents to demonstrate its capabilities effectively.',
-                'The process for purchasing our a_OCR solution involves contacting our sales team for a quote, followed by agreement on terms and secure payment setup. Once purchased, we provide quick onboarding with training and support to ensure smooth implementation.',
+                'To schedule a demo for our A_paratus product, you can visit our website or contact our sales team via email or phone for a personalized session. Demos are tailored to your needs, showcasing live processing of your sample documents to demonstrate its capabilities effectively.',
+                'The process for purchasing our A_paratus solution involves contacting our sales team for a quote, followed by agreement on terms and secure payment setup. Once purchased, we provide quick onboarding with training and support to ensure smooth implementation.',
                 'Yes, we offer custom solutions for enterprise clients, including tailored integrations and features based on specific industry requirements. Our team works closely with you to develop bespoke OCR workflows that align with your business scale and objectives.',
                 'Yes, there are discounts for bulk or annual subscriptions, designed to provide cost savings for high-volume users or long-term commitments. These discounts can be discussed during the quoting process to best fit your usage patterns.',
                 'For sales inquiries in your region, you can contact our dedicated regional representatives listed on our website or reach out to our global support team. We ensure localized assistance, including in India and international markets, to address your specific needs promptly.'
@@ -139,7 +139,7 @@ const AnimatedFAQDiagram = () => {
             rightAnswers: [
                 'We provide comprehensive post-sales support, including technical assistance, training sessions, and ongoing maintenance for our customers. Our support team is available 24/7 via chat, email, or phone to resolve any issues and maximize product value.',
                 'Yes, you can get a personalized quote based on your usage needs by providing details about your document volume and requirements to our sales team. We tailor the quote to ensure it aligns with your budget and projected usage for optimal cost-efficiency.',
-                'Yes, we have partnerships and resellers for our a_OCR, collaborating with tech firms and distributors to expand reach. These partners can assist with sales and implementation in various regions, enhancing accessibility for customers.',
+                'Yes, we have partnerships and resellers for our A_paratus, collaborating with tech firms and distributors to expand reach. These partners can assist with sales and implementation in various regions, enhancing accessibility for customers.',
                 'The typical sales cycle for our product ranges from 2-4 weeks, starting from initial inquiry to final purchase and setup. This includes demo, quote negotiation, and onboarding, streamlined for efficiency based on client readiness.',
                 'Yes, there are referral programs for existing customers, offering rewards like discounts or credits for successful referrals. This program encourages sharing experiences and helps grow our community while benefiting loyal users.'
             ]
@@ -153,8 +153,8 @@ const AnimatedFAQDiagram = () => {
                 'Do you offer pricing plans for startups or small businesses?'
             ],
             leftAnswers: [
-                'Our a_OCR service offers different pricing tiers, including basic for small users, standard for mid-sized businesses, and enterprise for large-scale needs. Each tier provides varying levels of document processing limits, support, and features to suit diverse requirements.',
-                'Yes, there is a free trial available for our a_OCR product, allowing users to test its features with a limited number of documents. The trial helps you evaluate accuracy and integrations before committing to a paid plan.',
+                'Our A_paratus service offers different pricing tiers, including basic for small users, standard for mid-sized businesses, and enterprise for large-scale needs. Each tier provides varying levels of document processing limits, support, and features to suit diverse requirements.',
+                'Yes, there is a free trial available for our A_paratus product, allowing users to test its features with a limited number of documents. The trial helps you evaluate accuracy and integrations before committing to a paid plan.',
                 'Pricing is calculated per document or per month, depending on the tier, with flexible options for usage-based billing. This ensures cost alignment with actual needs, whether for occasional or high-volume processing.',
                 'There may be additional fees for high-volume usage beyond standard tiers, but these are transparently outlined in quotes. We offer scalable plans to avoid surprises, with options to upgrade as your needs grow.',
                 'Yes, we offer pricing plans for startups or small businesses, with affordable entry-level options and flexible scaling. These plans include essential features without high upfront costs, supporting growth in early stages.'
@@ -183,10 +183,10 @@ const AnimatedFAQDiagram = () => {
                 'What file formats can I export the extracted data to?'
             ],
             leftAnswers: [
-                'To upload documents to our a_OCR platform, simply use the web interface or mobile app to select files from your device or integrate with sources like Gmail or Drive. The upload is secure and quick, initiating the processing pipeline immediately.',
+                'To upload documents to our A_paratus platform, simply use the web interface or mobile app to select files from your device or integrate with sources like Gmail or Drive. The upload is secure and quick, initiating the processing pipeline immediately.',
                 'The steps involved in extracting data from a scanned document include ingestion, OCR recognition, understanding the content, taking actions like validation, and exporting to structured formats. This end-to-end process ensures accurate conversion from unstructured to usable data.',
-                'Yes, our a_OCR can process documents in real-time, providing instant extraction for uploaded or scanned items. This feature is particularly useful for time-sensitive applications, delivering results within seconds.',
-                'Our a_OCR handles complex layouts like tables and forms by using AI to detect and parse structures accurately. It extracts data from rows, columns, and fields while maintaining relationships, ensuring no loss of context.',
+                'Yes, our A_paratus can process documents in real-time, providing instant extraction for uploaded or scanned items. This feature is particularly useful for time-sensitive applications, delivering results within seconds.',
+                'Our A_paratus handles complex layouts like tables and forms by using AI to detect and parse structures accurately. It extracts data from rows, columns, and fields while maintaining relationships, ensuring no loss of context.',
                 'You can export the extracted data to formats like CSV, XML, XLS, as shown in our processing stack. These options allow easy integration with analysis tools or databases for further use.'
             ],
             rightQuestions: [
@@ -197,7 +197,7 @@ const AnimatedFAQDiagram = () => {
                 'How secure is the data during the OCR processing workflow?'
             ],
             rightAnswers: [
-                'Yes, there is an API available for integrating our a_OCR into your app, enabling programmatic access to OCR functions. The API supports custom workflows, making it simple to embed in existing software.',
+                'Yes, there is an API available for integrating our A_paratus into your app, enabling programmatic access to OCR functions. The API supports custom workflows, making it simple to embed in existing software.',
                 'The OCR manages batch processing by allowing upload of multiple files, which are handled sequentially or in parallel for efficiency. This scales to large volumes, with progress tracking and bulk export options.',
                 'If the OCR encounters unreadable text, it flags the issue and uses AI-based error correction or suggests manual review. This minimizes data loss, maintaining overall high accuracy of 99.2%.',
                 'Yes, you can customize extraction templates for specific documents, tailoring fields and rules to your needs. This enhances precision for recurring document types across industries.',
@@ -213,11 +213,11 @@ const AnimatedFAQDiagram = () => {
                 'How accurate is your OCR for extracting specific fields like dates or numbers?'
             ],
             leftAnswers: [
-                'The accuracy rate of our a_OCR for printed text is 99.2%, delivering reliable results across various fonts and qualities. This high precision reduces errors and supports dependable data extraction.',
-                'Our a_OCR performs well on low-quality or damaged documents, using AI enhancements to reconstruct and recognize text effectively. Even with noise or degradation, it maintains close to 99.2% accuracy through advanced processing.',
-                'Yes, our a_OCR improves accuracy over time with machine learning, learning from processed data to refine models. Continuous updates ensure evolving performance for better results on diverse documents.',
+                'The accuracy rate of our A_paratus for printed text is 99.2%, delivering reliable results across various fonts and qualities. This high precision reduces errors and supports dependable data extraction.',
+                'Our A_paratus performs well on low-quality or damaged documents, using AI enhancements to reconstruct and recognize text effectively. Even with noise or degradation, it maintains close to 99.2% accuracy through advanced processing.',
+                'Yes, our A_paratus improves accuracy over time with machine learning, learning from processed data to refine models. Continuous updates ensure evolving performance for better results on diverse documents.',
                 'We ensure data privacy during processing with strict encryption, access controls, and compliance with regulations like GDPR. No data is stored without permission, protecting sensitive information throughout.',
-                'Our a_OCR is highly accurate for extracting specific fields like dates or numbers, achieving 99.2% precision due to specialized recognition. This makes it ideal for financial or analytical applications requiring exact data.'
+                'Our A_paratus is highly accurate for extracting specific fields like dates or numbers, achieving 99.2% precision due to specialized recognition. This makes it ideal for financial or analytical applications requiring exact data.'
             ],
             rightQuestions: [
                 'Can I test the accuracy of your OCR with my own sample documents?',
@@ -227,11 +227,11 @@ const AnimatedFAQDiagram = () => {
                 'What error correction mechanisms are built into your OCR?'
             ],
             rightAnswers: [
-                'Yes, you can test the accuracy of our a_OCR with your own sample documents via the free trial or demo. This allows real-world evaluation to confirm its effectiveness for your needs.',
+                'Yes, you can test the accuracy of our A_paratus with your own sample documents via the free trial or demo. This allows real-world evaluation to confirm its effectiveness for your needs.',
                 'The accuracy for multilingual or non-Latin scripts is 99.2%, supported by broad language models. It handles diverse scripts seamlessly, ensuring reliability across global use cases.',
                 'Lighting or image quality can affect OCR accuracy, but our system mitigates this with preprocessing algorithms. It adjusts for variations, maintaining high performance even in suboptimal conditions.',
                 'There are benchmarks and third-party validations supporting our 99.2% accuracy claims across industries. These independent assessments confirm its superior performance in real-world scenarios.',
-                'Our a_OCR has built-in error correction mechanisms, such as AI-based contextual fixes and flagging for review. These tools enhance overall reliability, correcting potential misreads automatically.'
+                'Our A_paratus has built-in error correction mechanisms, such as AI-based contextual fixes and flagging for review. These tools enhance overall reliability, correcting potential misreads automatically.'
             ]
         },
         'sectors': {
@@ -243,10 +243,10 @@ const AnimatedFAQDiagram = () => {
                 'What advantages does your OCR provide to logistics companies?'
             ],
             leftAnswers: [
-                'Our a_OCR benefits the financial services industry by automating invoice and receipt processing, reducing errors and speeding up transactions. With 99.2% accuracy, it ensures compliant data handling across all financial documents.',
+                'Our A_paratus benefits the financial services industry by automating invoice and receipt processing, reducing errors and speeding up transactions. With 99.2% accuracy, it ensures compliant data handling across all financial documents.',
                 'We offer solutions for healthcare document processing, digitizing patient records and forms efficiently. This improves accessibility and accuracy, supporting better patient care across the industry.',
-                'Yes, our a_OCR can be used in legal firms for contract analysis, extracting key terms and dates quickly. It handles complex legal documents with high precision, aiding in review and compliance.',
-                'Our a_OCR is applied in government and public sector workflows for digitizing records and forms. It enhances efficiency in administrative tasks, working on all document types with reliability.',
+                'Yes, our A_paratus can be used in legal firms for contract analysis, extracting key terms and dates quickly. It handles complex legal documents with high precision, aiding in review and compliance.',
+                'Our A_paratus is applied in government and public sector workflows for digitizing records and forms. It enhances efficiency in administrative tasks, working on all document types with reliability.',
                 'The advantages for logistics companies include fast processing of shipping documents and invoices. This streamlines operations, reducing delays and errors in supply chain management.'
             ],
             rightQuestions: [
@@ -257,11 +257,11 @@ const AnimatedFAQDiagram = () => {
                 'How does your OCR support e-commerce in invoice and receipt handling?'
             ],
             rightAnswers: [
-                'Yes, there are case studies for our a_OCR in retail or manufacturing sectors, showcasing improved inventory and order processing. These demonstrate cost savings and efficiency gains across operations.',
-                'Education institutions can use our a_OCR for digitization of archives, exams, and administrative forms. It facilitates easy access to structured data, supporting research and management.',
-                'Our a_OCR plays a key role in insurance claim processing by extracting data from forms and receipts accurately. This accelerates approvals and reduces fraud with its high precision.',
-                'Yes, real estate firms benefit from our a_OCR for processing property documents like deeds and contracts. It ensures quick extraction and organization, aiding in transactions and records management.',
-                'Our a_OCR supports e-commerce in invoice and receipt handling by automating data entry and validation. This boosts operational speed and accuracy, enhancing customer service and backend efficiency.'
+                'Yes, there are case studies for our A_paratus in retail or manufacturing sectors, showcasing improved inventory and order processing. These demonstrate cost savings and efficiency gains across operations.',
+                'Education institutions can use our A_paratus for digitization of archives, exams, and administrative forms. It facilitates easy access to structured data, supporting research and management.',
+                'Our A_paratus plays a key role in insurance claim processing by extracting data from forms and receipts accurately. This accelerates approvals and reduces fraud with its high precision.',
+                'Yes, real estate firms benefit from our A_paratus for processing property documents like deeds and contracts. It ensures quick extraction and organization, aiding in transactions and records management.',
+                'Our A_paratus supports e-commerce in invoice and receipt handling by automating data entry and validation. This boosts operational speed and accuracy, enhancing customer service and backend efficiency.'
             ]
         }
     };

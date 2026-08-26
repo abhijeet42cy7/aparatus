@@ -207,7 +207,7 @@ const MiddleSection = () => {
 
                             <motion.g>
                                 <motion.text x="140" y="25" fill="#000000" fontSize="10" fontWeight="400" fontFamily="Source Code Pro" custom={0} variants={textVariants}>
-                                    01 - INGEST
+                                    01 - A_ocr
                                 </motion.text>
                                 <motion.text x="140" y="45" fill="#000000" fontSize="12" opacity="0.7" custom={1} variants={textVariants}>
                                     Upload files or data from
@@ -775,8 +775,7 @@ const MiddleSection = () => {
 
                 <img style={{ zIndex: '120', position: 'absolute', top: '-388px', right: '-25px', transform: 'translate(-50%, -50%) scale(1)' }} src="./[ 03 ].svg" alt="" />
                 <img style={{ width: 'auto', zIndex: '120', position: 'absolute', top: '-256px', left: "56.3%", transform: 'translate(-50%, -50%) scale(0.9)' }} src="./TAKE ACTION.svg" alt="" />
-                <img style={{ width: 'auto', zIndex: '120', position: 'absolute', top: '-360px', left: "90.3%", transform: 'translate(-50%, -50%) scale(0.9)' }} src="./a_OCR.svg" alt="" />
-                <img style={{ width: 'auto', zIndex: '120', position: 'absolute', top: '-327px', left: '20.3%', transform: 'translate(-50%, -50%) scale(0.98)' }} src="./Optical Character Recognition.svg" alt="" />
+                <img style={{ width: 'auto', zIndex: '120', position: 'absolute', top: '-360px', left: "90.3%", transform: 'translate(-50%, -50%) scale(0.9)' }} src="./a_OCR.svg" alt="A_paratus" />
 
             </motion.div>
 

@@ -182,10 +182,6 @@
   display: inline;
 }
 
-.hs-word.is-dim {
-  color: rgba(196, 214, 204, 0.38);
-}
-
 .hs-scroll-cue {
   position: absolute;
   right: 36px;
