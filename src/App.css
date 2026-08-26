@@ -151,15 +151,15 @@ display: none;
 
 .hero-tagline {
   color: #FFF;
-  font-family: "Alliance No.2";
-  font-size: 60px;
+  font-family: "Degarism Studio";
+  font-size: 36px;
   font-style: normal;
   font-weight: 200;
-  line-height: normal;
+  line-height: 1.15;
   letter-spacing: -0.00275rem;
-  margin-bottom: 22px;
-  font-family: "Degarism Studio";
-
+  margin: 0 auto 22px;
+  max-width: 920px;
+  padding: 0 24px;
 }
 
 .hero-button-wrapper {
@@ -227,9 +227,10 @@ display: none;
   bottom: 24px;
   left: 0;
   right: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 30px;
+  align-items: start;
   z-index: 10;
   padding: 0 95px;
 }
@@ -240,19 +241,7 @@ display: none;
   align-items: flex-start;
   position: relative;
   padding-top: 20px;
-  flex: 1;
-  max-width: calc(25% - 30px);
-}
-
-.bottom-section:first-child {
-  border-top: 1px solid #a8a8a8;
-}
-
-.bottom-section:first-child::before {
-  display: none;
-}
-
-.bottom-section:not(:first-child) {
+  width: 100%;
   border-top: 1px solid #a8a8a8;
 }
 
@@ -270,6 +259,31 @@ display: none;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #ffffff;
+  line-height: 1.45;
+  max-width: 100%;
+}
+
+.info-product {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 22px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #ffffff;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.info-product:hover {
+  opacity: 0.7;
+}
+
+.info-product-arrow {
+  display: inline-flex;
+  transform: rotate(-90deg);
 }
 .hero-video-bg::-webkit-media-controls {
   display: none !important;
@@ -280,11 +294,11 @@ display: none;
 
 @media (max-width: 768px) {
   .hero-logo {
-    font-size: 50px;
+    font-size: 42px;
   }
   
   .hero-tagline {
-    font-size: 30px;
+    font-size: 22px;
   }
   
   .hero-video-bg {

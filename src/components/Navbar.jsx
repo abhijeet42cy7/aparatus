@@ -15,7 +15,7 @@ function Navbar({ onRequestAccess }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const openingSection = document.querySelector('.opening-container')
+      const openingSection = document.querySelector('.page-openingO')
       const intelligenceSection = document.querySelector('.intelligence-layer-container')
       const solutionsSection = document.querySelector('.solutions-container')
       const pipelineSection = document.querySelector('.pipeline-container')
@@ -148,7 +148,7 @@ function Navbar({ onRequestAccess }) {
   return (
     <nav className={`nav-container ${isOverOpening ? 'nav-over-opening' : ''} ${isOverIntelligence ? 'nav-over-intelligence' : ''} ${isOverSolutions ? 'nav-over-solutions' : ''} ${isOverPipeline ? 'nav-over-pipeline' : ''} ${isOverStats ? 'nav-over-stats' : ''}`}>
       <div className="nav-section left">
-        <div className="logo" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>a_OCR</div>
+        <div className="logo" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>A_paratus</div>
       </div>
 
       {/* Desktop Navigation */}
