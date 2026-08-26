@@ -161,7 +161,7 @@ const Chatbot = () => {
     }, []);
 
     const suggestedQuestions = [
-        "WHAT FILE TYPES DOES AOCR SUPPORT?"
+        "WHAT FILE TYPES DOES A_PARATUS SUPPORT?"
     ];
 
     const handleSendMessage = async () => {
