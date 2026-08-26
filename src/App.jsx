@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar.jsx'
@@ -35,8 +35,7 @@ function App() {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    // Initialize Lenis smooth scroll for professional-grade smoothness
+  useLayoutEffect(() => {
     initializeLenisScroll();
   }, []);
 

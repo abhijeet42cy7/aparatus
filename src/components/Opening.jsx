@@ -3,6 +3,7 @@ import React, { useRef, useLayoutEffect, useState, useCallback } from "react";
 import ThreeLinePattern from './ThreeLinePattern';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getLenis } from "../utils/smoothScroll.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +32,8 @@ const isAdjacent = (idx1, idx2, gridData) => {
 export default function PinnedWordRevealPage() {
   const sectionRef = useRef(null);
   const wordsRef = useRef([]);
+  const videoRef = useRef(null);
+  const OPENING_VIDEO_SRC = "/opening.mp4?v=3";
 
   // Vector lines configuration - same as Opening.jsx
   const lines = {
@@ -152,47 +155,116 @@ export default function PinnedWordRevealPage() {
     cursor: 'pointer',
   };
 
-  // Your sentence (edit freely)
   const sentence =
-    "The foundation of AI automation—transforming unstructured documents into machine-actionable data across your enterprise.";
+    "Build applications to Analyze. Automate. Delegate — with Aparatus Platform. Let your team focus on decisions, not execution";
+
+  const textLines = [
+    { highlight: false, words: ["Build", "applications", "to"] },
+    { highlight: true, words: ["Analyze.", "Automate.", "Delegate", "—"] },
+    { highlight: false, words: ["with", "Aparatus", "Platform."] },
+    { highlight: false, words: ["Let", "your", "team", "focus", "on", "decisions,", "not", "execution"] },
+  ];
 
   useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      // collect word nodes
-      const words = wordsRef.current.filter(Boolean);
-      if (!words.length) return;
+    const section = sectionRef.current;
+    const video = videoRef.current;
+    const words = wordsRef.current.filter(Boolean);
+    if (!section || !words.length) return;
 
-      // ensure starting state (no movement, only opacity)
-      gsap.set(words, { opacity: 0.1 });
+    gsap.set(words, { opacity: 0.32, force3D: true });
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
 
-      // timeline that fades words in with stagger (no y/scale/rotation)
-      const tl = gsap.timeline().to(words, {
-        opacity: 1,
-        stagger: 0.22,           // reveal gap between words
-        duration: 0.4,           // fade duration per word
-        ease: "power1.out",
+    let duration = video?.duration || 0;
+    let target = 0;
+    let shown = 0;
+    let raf = 0;
+
+    const applyProgress = (p) => {
+      const clamped = gsap.utils.clamp(0, 1, p);
+      words.forEach((word, i) => {
+        const start = i / words.length;
+        const span = 1 / words.length;
+        const local = gsap.utils.clamp(0, 1, (clamped - start) / span);
+        gsap.set(word, { opacity: 0.32 + 0.68 * local });
       });
 
-      // pin the section for the whole animation,
-      // and scrub so opacity follows scroll
-      const st = ScrollTrigger.create({
-        trigger: sectionRef.current,
-        animation: tl,
-        start: "top top",
-        end: "+=" + words.length * 50, // pin length based on word count
-        pin: true,          // lock the screen to this section
-        scrub: true,        // tie progress to scroll for smoothness
-        markers: false,
-        anticipatePin: 1,
-      });
+      if (!video || !duration) return;
+      const t = clamped * duration;
+      if (Math.abs(video.currentTime - t) > 0.04) {
+        video.currentTime = t;
+      }
+    };
 
-      return () => {
-        st.kill();
-        tl.kill();
-      };
-    }, sectionRef);
+    const tick = () => {
+      shown += (target - shown) * 0.16;
+      if (Math.abs(target - shown) < 0.0007) shown = target;
+      applyProgress(shown);
+      raf = Math.abs(target - shown) > 0.0007 ? window.requestAnimationFrame(tick) : 0;
+    };
 
-    return () => ctx.revert();
+    const setProgress = (p) => {
+      target = p;
+      if (!raf) raf = window.requestAnimationFrame(tick);
+    };
+
+    const st = ScrollTrigger.create({
+      trigger: section,
+      start: "top top",
+      end: "+=220%",
+      pin: true,
+      pinSpacing: true,
+      anticipatePin: 0,
+      invalidateOnRefresh: true,
+      onUpdate: (self) => setProgress(self.progress),
+      onRefresh: (self) => {
+        shown = self.progress;
+        target = self.progress;
+        applyProgress(self.progress);
+      },
+    });
+
+    let videoReady = false;
+    const markVideoReady = () => {
+      if (!video || videoReady) return;
+      videoReady = true;
+      duration = video.duration || duration;
+      video.pause();
+      video.classList.add("is-ready");
+      video.parentElement?.classList.add("has-video");
+    };
+
+    const onMeta = () => {
+      duration = video.duration || 0;
+      video.pause();
+      if (video.readyState >= 2) markVideoReady();
+    };
+
+    if (video) {
+      video.addEventListener("loadedmetadata", onMeta);
+      video.addEventListener("canplay", markVideoReady);
+      if (video.readyState >= 1) onMeta();
+      if (video.readyState >= 2) markVideoReady();
+    }
+
+    const lenis = getLenis();
+    const onLenisScroll = () => ScrollTrigger.update();
+    if (lenis) lenis.on("scroll", onLenisScroll);
+
+    ScrollTrigger.refresh();
+
+    return () => {
+      if (raf) window.cancelAnimationFrame(raf);
+      if (video) {
+        video.removeEventListener("loadedmetadata", onMeta);
+        video.removeEventListener("canplay", markVideoReady);
+        video.pause();
+      }
+      if (lenis) lenis.off("scroll", onLenisScroll);
+      st.kill();
+    };
   }, []);
 
   // Render top rows
@@ -290,127 +362,295 @@ export default function PinnedWordRevealPage() {
   return (
     <div ref={sectionRef} className="page-openingO">
       <style>{`
-        /* Page base - unique to OpeningO */
         .page-openingO {
           min-height: 100vh;
-          background: #ffffff;
+          background: #000000;
+          box-sizing: border-box;
+          position: relative;
+          padding: 96px 40px 40px;
+          overflow: hidden;
+          backface-visibility: hidden;
+        }
+
+        .opening-media {
+          position: absolute;
+          left: 40px;
+          bottom: 72px;
+          width: min(340px, 26vw);
+          aspect-ratio: 4 / 3;
+          border-radius: 22px;
+          overflow: hidden;
+          background: #141414;
+          z-index: 15;
+          container-type: size;
+        }
+
+        .opening-media-placeholder {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          color: rgba(255, 255, 255, 0.45);
+          font-family: "Alliance No.2", ui-sans-serif, system-ui, sans-serif;
+          font-size: 12px;
+          letter-spacing: 1.4px;
+          text-transform: uppercase;
+          background:
+            radial-gradient(circle at 30% 20%, rgba(255,255,255,0.06), transparent 45%),
+            #161616;
+          opacity: 1;
+          transition: opacity 0.45s ease;
+        }
+
+        .opening-media-video {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0;
+          transition: opacity 0.45s ease;
+          background: #111;
+        }
+
+        .opening-media-video.is-ready {
+          opacity: 1;
+        }
+
+        .opening-media.has-video .opening-media-placeholder {
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .opening-ontology-overlay {
+          position: absolute;
+          left: 50.4%;
+          top: 76.5%;
+          transform: translate(-50%, -50%);
+          z-index: 4;
+          background: #e9e9e9;
+          color: #4c4c4c;
+          font-family: ui-sans-serif, system-ui, Helvetica, Arial, sans-serif;
+          font-size: 3.8cqw;
+          font-weight: 500;
+          letter-spacing: 0.02em;
+          line-height: 1;
+          padding: 0.45cqh 0.9cqw;
+          white-space: nowrap;
+          pointer-events: none;
+          opacity: 1;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 6vh 5vw;
           box-sizing: border-box;
-          position: relative;
         }
 
-        /* Text box */
         .hero-wrap-openingO {
-          max-width: 1100px;
-          width: 100%;
+          margin-left: auto;
+          width: min(68%, 980px);
+          height: calc(100vh - 136px);
+          background: #ffffff;
+          border-radius: 28px;
+          padding: 0;
+          box-sizing: border-box;
           position: relative;
           z-index: 10;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+
+        .opening-signs {
+          position: absolute;
+          left: 3%;
+          width: 94%;
+          height: 150px;
+          object-fit: contain;
+          object-position: center;
+          pointer-events: none;
+          user-select: none;
+          z-index: 2;
+        }
+
+        .opening-signs-top {
+          top: 24px;
+        }
+
+        .opening-signs-bottom {
+          bottom: 24px;
         }
 
         .headline-openingO {
           margin: 0;
+          max-width: 86%;
           font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
             Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
             "Segoe UI Emoji";
-          font-size: 44px;
-          line-height: 1.3;
+          font-size: 38px;
+          line-height: 1.28;
           color: #333333;
           font-weight: 400;
           text-align: center;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
+          position: relative;
+          z-index: 20;
         }
 
-        /* Keep words inline but targetable */
+        .headline-line-openingO {
+          display: block;
+        }
+
         .headline-openingO .word {
           display: inline-block;
-          opacity: 0;
+          margin-right: 0.32em;
+          opacity: 0.32;
           will-change: opacity;
-          margin-right: 10px;
+          white-space: nowrap;
         }
 
-        /* Optional subtle color accents */
-        .muted-openingO { color:rgba(75, 85, 99, 0.61); }
+        .muted-openingO { color: rgba(75, 85, 99, 0.61); }
         .highlight-openingO { color: #4169e1; }
 
-        /* Vector grid styling - unique to OpeningO */
-        .hard-grid-openingO {
-          margin: 0 53px 0 53px;
-          display: flex;
-          flex-direction: column;
-          gap: 32px;
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          pointer-events: none;
-        }
-
-        .top-grid-openingO {
-          margin-top: 70px; /* Pushed down by 20px from 35px */
-        }
-
-        .bottom-grid-openingO {
-          margin-top: 650px; /* Pushed down by 50px from 350px */
-          margin-bottom: 35px;
-        }
-
+        .hard-grid-openingO,
+        .top-grid-openingO,
+        .bottom-grid-openingO,
         .hard-row-openingO {
-          display: flex;
-          gap: 27px;
-          justify-content: center;
-          pointer-events: auto;
+          display: none;
         }
 
-        /* Ensure text is above the grid */
-        .hero-wrap-openingO {
-          z-index: 20;
+        @media (max-width: 1024px) {
+          .page-openingO {
+            padding: 88px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 18px;
+          }
+
+          .hero-wrap-openingO {
+            width: 100%;
+            height: auto;
+            min-height: 58vh;
+            padding: 72px 20px;
+            margin-left: 0;
+            order: 1;
+          }
+
+          .opening-media {
+            position: relative;
+            left: auto;
+            bottom: auto;
+            width: min(420px, 100%);
+            order: 2;
+          }
+
+          .headline-openingO {
+            max-width: 90%;
+            font-size: 32px;
+          }
+
+          .opening-signs {
+            height: 96px;
+          }
+
+          .opening-signs-top {
+            top: 12px;
+          }
+
+          .opening-signs-bottom {
+            bottom: 12px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .headline-openingO {
+            font-size: 24px;
+          }
+
+          .hero-wrap-openingO {
+            border-radius: 20px;
+            min-height: 48vh;
+          }
+
+          .opening-media {
+            border-radius: 16px;
+          }
         }
       `}</style>
 
-      {/* Vector Lines Grid - Top */}
-      <div
-        className="hard-grid-openingO top-grid-openingO"
-        ref={gridTopRef}
-        onMouseMove={handleMouseMoveTop}
-        onMouseLeave={handleMouseLeaveTop}
-        style={{ userSelect: 'none' }}
-      >
-        {rowsTop}
-      </div>
-
-      {/* Vector Lines Grid - Bottom */}
-      <div
-        className="hard-grid-openingO bottom-grid-openingO"
-        ref={gridBottomRef}
-        onMouseMove={handleMouseMoveBottom}
-        onMouseLeave={handleMouseLeaveBottom}
-        style={{ userSelect: 'none' }}
-      >
-        {rowsBottom}
+      <div className="opening-media">
+        <div className="opening-media-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M8 6.5v11l9-5.5-9-5.5Z" fill="currentColor" />
+          </svg>
+          <span>Video placeholder</span>
+        </div>
+        <video
+          ref={videoRef}
+          className="opening-media-video"
+          muted
+          playsInline
+          preload="auto"
+          src={OPENING_VIDEO_SRC || undefined}
+          onLoadedMetadata={(e) => e.currentTarget.pause()}
+        />
+        <span className="opening-ontology-overlay" aria-hidden="true">A_paratus</span>
       </div>
 
       <div className="hero-wrap-openingO">
+        <img
+          src="/opening-signs.png"
+          alt=""
+          className="opening-signs opening-signs-top"
+        />
+        <img
+          src="/opening-signs.png"
+          alt=""
+          className="opening-signs opening-signs-bottom"
+        />
+
+        <div
+          className="hard-grid-openingO top-grid-openingO"
+          ref={gridTopRef}
+          onMouseMove={handleMouseMoveTop}
+          onMouseLeave={handleMouseLeaveTop}
+          style={{ userSelect: 'none' }}
+        >
+          {rowsTop}
+        </div>
+
+        <div
+          className="hard-grid-openingO bottom-grid-openingO"
+          ref={gridBottomRef}
+          onMouseMove={handleMouseMoveBottom}
+          onMouseLeave={handleMouseLeaveBottom}
+          style={{ userSelect: 'none' }}
+        >
+          {rowsBottom}
+        </div>
+
         <h1 className="headline-openingO" aria-label={sentence}>
-          {sentence.split(" ").map((w, i) => (
-            <span
-              key={i}
-              className={`word${
-                // simple example: tint a few words if you like (optional)
-                [" foundation ", "automation—", "unstructured", "documents", "machine-actionable", "data","into"].includes(
-                  w.replace(/[^\w-—]/g, "")
-                )
-                  ? " highlight-openingO"
-                  : ""
-                }`}
-              ref={(el) => (wordsRef.current[i] = el)}
-            >
-              {w}
-              {i < sentence.split(" ").length - 1 ? " " : ""}
+          {textLines.map((line, lineIndex) => (
+            <span className="headline-line-openingO" key={lineIndex}>
+              {line.words.map((w, wordIndex) => {
+                const i = textLines.slice(0, lineIndex).reduce((n, l) => n + l.words.length, 0) + wordIndex;
+                return (
+                  <span
+                    key={i}
+                    className={`word${line.highlight ? " highlight-openingO" : ""}`}
+                    ref={(el) => (wordsRef.current[i] = el)}
+                  >
+                    {w}
+                  </span>
+                );
+              })}
             </span>
           ))}
         </h1>

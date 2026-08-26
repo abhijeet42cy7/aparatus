@@ -1,0 +1,239 @@
+/* Hero: live video zooms out inside a frame, then gets annotated */
+
+.landing-container.hs-section {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hs-section {
+  position: relative;
+  width: 100vw;
+  color: #fff;
+  background: #000;
+}
+
+.hs-stage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.hs-world {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hs-world-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.22);
+  transform-origin: center center;
+  filter: blur(14px) saturate(0.8) brightness(0.58);
+}
+
+.hs-world-veil {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.hs-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0;
+  border: 1px solid transparent;
+  z-index: 2;
+  background: #000;
+}
+
+.hs-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.25);
+  transform-origin: center center;
+}
+
+.hs-video-dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  pointer-events: none;
+}
+
+.hs-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.55);
+}
+
+.hs-markers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hs-marker {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  margin-top: -9px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 4px;
+  background: rgba(8, 10, 12, 0.28);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.hs-marker::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-left: 6px solid #fff;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transform: translate(-35%, -50%);
+}
+
+.hs-intro,
+.hs-card {
+  z-index: 4;
+}
+
+.hs-intro {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px 120px;
+}
+
+.hs-logo {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 60px;
+  font-weight: 200;
+  letter-spacing: -0.00275rem;
+  font-family: "Degarism Studio", sans-serif;
+  margin: 0 0 8px;
+}
+
+.hs-tagline {
+  color: #fff;
+  font-family: "Degarism Studio", sans-serif;
+  font-size: clamp(28px, 3.4vw, 48px);
+  font-weight: 200;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  word-spacing: 0.12em;
+  margin: 0 auto 28px;
+  max-width: 920px;
+}
+
+.hs-card {
+  position: absolute;
+  background: #0d2418;
+  border-radius: 28px;
+  padding: clamp(32px, 5vw, 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hs-card-line {
+  font-family: "Degarism Studio", sans-serif;
+  font-size: clamp(28px, 3.6vw, 52px);
+  font-weight: 300;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.hs-word {
+  color: rgba(236, 242, 238, 0.92);
+  display: inline;
+}
+
+.hs-word.is-dim {
+  color: rgba(196, 214, 204, 0.38);
+}
+
+.hs-scroll-cue {
+  position: absolute;
+  right: 36px;
+  bottom: 28px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+.hs-scroll-cue-icon {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+}
+
+.hs-bottom {
+  z-index: 6;
+}
+
+@media (max-width: 900px) {
+  .hs-logo {
+    font-size: 42px;
+  }
+
+  .hs-card {
+    padding: 28px 22px;
+  }
+
+  .hs-card-line {
+    font-size: 26px;
+  }
+
+  .hs-scroll-cue {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .hs-bottom {
+    display: none !important;
+  }
+}

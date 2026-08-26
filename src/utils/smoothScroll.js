@@ -1,12 +1,19 @@
 import Lenis from '@studio-freight/lenis'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 // Global Lenis instance
 let lenis = null;
+let tickerFn = null;
 
 /**
  * Initialize Lenis smooth scroll - professional grade like alfacharlie.co
  */
 export function initializeLenisScroll() {
+  if (lenis) return lenis;
+
   lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing
@@ -19,13 +26,14 @@ export function initializeLenisScroll() {
     infinite: false,
   })
 
-  function raf(time) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-  }
+  lenis.on('scroll', ScrollTrigger.update)
 
-  requestAnimationFrame(raf)
-  
+  tickerFn = (time) => {
+    lenis.raf(time * 1000)
+  }
+  gsap.ticker.add(tickerFn)
+  gsap.ticker.lagSmoothing(0)
+
   return lenis;
 }
 
@@ -77,6 +85,10 @@ export function startScroll() {
   if (lenis) {
     lenis.start();
   }
+}
+
+export function getLenis() {
+  return lenis;
 }
 
 /**
