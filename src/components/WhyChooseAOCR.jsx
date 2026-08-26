@@ -101,7 +101,7 @@ export default function WhyChooseAOCR() {
   const titleWordRefs = {
     Why: useRef(null),
     Choose: useRef(null),
-    a_OCR: useRef(null)
+    A_paratus: useRef(null)
   };
 
   useEffect(() => {
@@ -214,9 +214,8 @@ export default function WhyChooseAOCR() {
       blinkElement(titleWordRefs.Choose.current, 1.5, 5);
     }, "+=0.15");
 
-    // a_OCR with more delay
     mainTimeline.add(() => {
-      blinkElement(titleWordRefs.a_OCR.current, 1.3, 4);
+      blinkElement(titleWordRefs.A_paratus.current, 1.3, 4);
     }, "+=0.15");
 
     // Set final state for all elements
@@ -231,7 +230,7 @@ export default function WhyChooseAOCR() {
     <div className="stats-page-container">
       <div className="stats-header-section">
         <div className="stats-section-label">[ STATS ]</div>
-        <h1 className="stats-main-title"><span ref={titleWordRefs.Why}>Why</span> <span ref={titleWordRefs.Choose}>Choose</span> <span ref={titleWordRefs.a_OCR}>a_OCR</span></h1>
+        <h1 className="stats-main-title"><span ref={titleWordRefs.Why}>Why</span> <span ref={titleWordRefs.Choose}>Choose</span> <span ref={titleWordRefs.A_paratus}>A_paratus</span></h1>
       </div>
 
       <div className="stats-grid">

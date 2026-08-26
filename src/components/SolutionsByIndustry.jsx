@@ -534,20 +534,20 @@ const industryData = {
     header: '01 - FINANCIAL TECHNOLOGY',
     documents: [
       {
-        name: 'Bank Statements',
-        description: 'Extract transaction data, balances, and customer information from multiple banking formats'
+        name: 'Underwriting Engines',
+        description: 'Build automated credit decisioning and underwriting applications across statements, KYC, and loan data in one system'
       },
       {
-        name: 'KYC Documents',
-        description: 'Process identity verification including passports, licenses, and proof of address'
+        name: 'KYC & Onboarding Platforms',
+        description: 'Deploy fully automated identity verification and customer onboarding applications with compliance built in'
       },
       {
-        name: 'Loan Applications',
-        description: 'Digitize income statements, tax returns, and employment letters'
+        name: 'Loan Origination Systems',
+        description: 'Ship end-to-end loan origination platforms that process applications, verify documents, and route approvals automatically'
       },
       {
-        name: 'Check Processing',
-        description: 'Convert handwritten and printed checks into structured data'
+        name: 'Transaction Monitoring Apps',
+        description: 'Build real-time transaction monitoring and reconciliation applications tailored to your banking infrastructure'
       }
     ]
   },
@@ -555,20 +555,20 @@ const industryData = {
     header: '02 - HEALTHCARE & MEDICAL',
     documents: [
       {
-        name: 'Medical Records',
-        description: 'Extract patient information, diagnoses, and treatment history from clinical documents'
+        name: 'Clinical Workflow Systems',
+        description: 'Build automated applications that manage patient records, treatment histories, and care coordination end-to-end'
       },
       {
-        name: 'Insurance Claims',
-        description: 'Process claim forms, EOBs, and authorization documents automatically'
+        name: 'Claims Automation Platforms',
+        description: 'Deploy fully automated insurance claims and authorization systems that adjudicate and route claims without manual intervention'
       },
       {
-        name: 'Prescriptions',
-        description: 'Digitize handwritten prescriptions and medication orders with high accuracy'
+        name: 'e-Prescribing & Medication Systems',
+        description: 'Ship custom applications for prescription management and medication order automation'
       },
       {
-        name: 'Lab Reports',
-        description: 'Convert test results and diagnostic reports into searchable data'
+        name: 'Diagnostic Data Platforms',
+        description: 'Build applications that structure lab results and diagnostic data and route them into clinical systems automatically'
       }
     ]
   },
@@ -576,20 +576,20 @@ const industryData = {
     header: '03 - LEGAL SERVICES',
     documents: [
       {
-        name: 'Contracts',
-        description: 'Extract key terms, clauses, and parties from legal agreements'
+        name: 'Contract Lifecycle Applications',
+        description: 'Build automated contract review, negotiation, and repository systems tailored to your practice'
       },
       {
-        name: 'Court Documents',
-        description: 'Process pleadings, motions, and judgments with legal entity recognition'
+        name: 'Litigation Management Platforms',
+        description: 'Deploy applications that manage pleadings, motions, and case workflows automatically'
       },
       {
-        name: 'Patents & IP',
-        description: 'Digitize patent applications and intellectual property documents'
+        name: 'IP & Patent Systems',
+        description: 'Ship custom applications for patent filing, tracking, and portfolio management'
       },
       {
-        name: 'Compliance Forms',
-        description: 'Automate regulatory filing and compliance document processing'
+        name: 'Compliance Automation Tools',
+        description: 'Build regulatory filing and compliance-monitoring applications that run without manual oversight'
       }
     ]
   },
@@ -597,20 +597,20 @@ const industryData = {
     header: '04 - GOVERNMENT & PUBLIC SECTOR',
     documents: [
       {
-        name: 'Citizen Applications',
-        description: 'Process permit applications, license renewals, and service requests'
+        name: 'Citizen Services Platforms',
+        description: 'Build fully automated applications for permits, license renewals, and public service requests'
       },
       {
-        name: 'Tax Documents',
-        description: 'Extract data from tax forms, returns, and assessment notices'
+        name: 'Tax Administration Systems',
+        description: 'Deploy applications that automate tax filing, assessment, and revenue-processing workflows'
       },
       {
-        name: 'Public Records',
-        description: 'Digitize historical archives and government documentation'
+        name: 'Public Records Systems',
+        description: 'Ship digital archive and records-management applications for government documentation'
       },
       {
-        name: 'Immigration Papers',
-        description: 'Process visa applications, passports, and immigration forms'
+        name: 'Immigration Case Management',
+        description: 'Build automated visa, passport, and immigration-processing applications'
       }
     ]
   },
@@ -618,20 +618,20 @@ const industryData = {
     header: '05 - LOGISTICS & SUPPLY CHAIN',
     documents: [
       {
-        name: 'Shipping Documents',
-        description: 'Extract data from bills of lading, packing lists, and manifests'
+        name: 'Freight & Shipping Platforms',
+        description: 'Build automated applications that manage bills of lading, packing lists, and manifests end-to-end'
       },
       {
-        name: 'Invoices & POs',
-        description: 'Process purchase orders and invoices across multiple formats'
+        name: 'Procurement Automation Systems',
+        description: 'Deploy applications that process purchase orders and invoices across every supplier format'
       },
       {
-        name: 'Customs Forms',
-        description: 'Digitize import/export documentation and customs declarations'
+        name: 'Customs & Trade Compliance Apps',
+        description: 'Ship automated import/export and customs-declaration systems'
       },
       {
-        name: 'Delivery Notes',
-        description: 'Convert proof of delivery and receipt confirmations to digital format'
+        name: 'Delivery & Fulfillment Platforms',
+        description: 'Build applications that automate proof-of-delivery and fulfillment-confirmation workflows'
       }
     ]
   }
@@ -654,15 +654,15 @@ export default function SolutionsByIndustry() {
   const getBenefitsText = (industry) => {
     switch (industry) {
       case 'Financial Technology':
-        return "REDUCE MANUAL DATA ENTRY BY 90%, ACCELERATE CUSTOMER ONBOARDING BY 75%, ENSURE REGULATORY COMPLIANCE, AND MINIMIZE HUMAN ERROR IN FINANCIAL CALCULATIONS.";
+        return "Cut underwriting time by 90%, launch onboarding platforms in weeks instead of years, ensure regulatory compliance by design, and eliminate manual reconciliation errors.";
       case 'Healthcare & Medical':
-        return "IMPROVE PATIENT CARE EFFICIENCY BY 80%, REDUCE MEDICAL ERRORS BY 95%, ACCELERATE CLAIMS PROCESSING BY 70%, AND ENHANCE REGULATORY COMPLIANCE IN HEALTHCARE DOCUMENTATION.";
+        return "Improve patient care efficiency by 80%, reduce medical errors by 95%, cut claims processing time by 70%, and build compliance-ready infrastructure into every application.";
       case 'Legal Services':
-        return "ACCELERATE CONTRACT REVIEW BY 85%, REDUCE LEGAL RESEARCH TIME BY 75%, IMPROVE DOCUMENT ACCURACY BY 90%, AND STREAMLINE COMPLIANCE MONITORING PROCESSES.";
+        return "Accelerate contract review by 85%, cut legal research time by 75%, improve document accuracy by 90%, and automate compliance monitoring end-to-end.";
       case 'Government & Public Sector':
-        return "IMPROVE CITIZEN SERVICE DELIVERY BY 80%, REDUCE PROCESSING TIME BY 70%, ENHANCE DATA SECURITY AND COMPLIANCE, AND STREAMLINE GOVERNMENT OPERATIONS EFFICIENCY.";
+        return "Improve citizen service delivery by 80%, cut processing time by 70%, strengthen data security and compliance, and modernize government operations end-to-end.";
       case 'Logistics & Supply Chain':
-        return "OPTIMIZE SUPPLY CHAIN VISIBILITY BY 85%, REDUCE DOCUMENT PROCESSING TIME BY 75%, IMPROVE INVENTORY ACCURACY BY 90%, AND ACCELERATE CUSTOMS CLEARANCE PROCESSES.";
+        return "Improve supply chain visibility by 85%, cut document processing time by 75%, improve inventory accuracy by 90%, and accelerate customs clearance end-to-end.";
       default:
         return "REDUCE MANUAL DATA ENTRY BY 90%, ACCELERATE PROCESSING BY 75%, ENSURE COMPLIANCE, AND MINIMIZE HUMAN ERROR.";
     }
@@ -775,9 +775,7 @@ export default function SolutionsByIndustry() {
           </h1>
         </div>
         <p className="solutions-description">
-          Transform your document processing <span className="solutions-description-highlight">workflow</span> with <span className="solutions-description-highlight">industry-specific OCR solutions</span> designed to
-          handle the unique challenges of your sector. Our advanced optical character recognition technology
-          delivers precise, <span className="solutions-description-highlight">scalable document digitization</span> across diverse business environments.
+          Deploy <span className="solutions-description-highlight">mission-critical automation</span> with <span className="solutions-description-highlight">industry-specific applications</span> built by Aparatus. Our AI-native software factory designs, builds, and ships fully custom enterprise applications engineered to solve your sector's <span className="solutions-description-highlight">highest-stakes workflows</span> — at a speed and reliability no coding agents plus dev teams can match.
         </p>
       </div>
 
